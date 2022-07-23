@@ -1,0 +1,41 @@
+/*
+Theme Name: pfDev_API
+Theme URI: https://github.com/PedroFigueiraRuivo/
+Author: Pedro Figueira
+Author URI: https://pedrofigueira.dev
+Description: Theme for using WordPress only as a BackEnd
+Version: 1.0
+Requires at least: 5.4
+Tested up to: 6.0.1
+Requires PHP: ^7.4
+*/
+body, a, p, div, span, ul, li {
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #333;
+  height: 30vh;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+}
+
+.main-content {
+  padding: 50px 100px;
+  background-color: #111;
+  box-shadow: 0 3px 5px rgba(255, 103, 0, 0.8);
+  border-radius: 7px;
+  border: 2px solid #ff6700;
+  font-size: 36px;
+  font-weight: 500;
+  color: #fff;
+}
