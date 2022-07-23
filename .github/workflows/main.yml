@@ -17,4 +17,4 @@ jobs:
         server: ${{ secrets.ftp_host }}
         username: ${{ secrets.ftp_user }}
         password: ${{ secrets.ftp_password }}
-        server-dir: homolog0.pedrofigueira.dev/pfDev_API/wp-content/themes/pfDev_API/
+        server-dir: pfDev_API/wp-content/themes/pfDev_API/
