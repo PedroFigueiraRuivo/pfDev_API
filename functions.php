@@ -51,6 +51,7 @@ require_once($dirBase . '/endpoints/photo_delete.php');
 require_once($dirBase . '/endpoints/comment_get.php');
 require_once($dirBase . '/endpoints/comment_post.php');
 
+// Require methods for password manage
 require_once($dirBase . '/endpoints/password.php');
 
 
