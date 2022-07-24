@@ -82,5 +82,5 @@ add_filter('rest_url_prefix', 'pfDev__change_api');
 function pfDev__expire_token() {
   return time() + (60 * 60 * 24);
 }
-add_action('jwt_auto_expire', 'pfDev__expire_token');
+add_action('jwt_auth_expire', 'pfDev__expire_token');
 ?> 
