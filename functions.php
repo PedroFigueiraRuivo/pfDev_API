@@ -70,7 +70,7 @@ update_option( 'large_crop', 1);
 /* 
  * Change url path of api
  */
- function pfDev__change_api() {
+function pfDev__change_api() {
   return 'json';
 }
 add_filter('rest_url_prefix', 'pfDev__change_api');
@@ -79,7 +79,7 @@ add_filter('rest_url_prefix', 'pfDev__change_api');
 /* 
  * Expire access token 24h after
  */
- function pfDev__expire_token() {
+function pfDev__expire_token() {
   return time() + (60 * 60 * 24);
 }
 add_action('jwt_auto_expire', 'pfDev__expire_token');
