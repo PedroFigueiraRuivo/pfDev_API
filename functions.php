@@ -52,7 +52,11 @@ require_once($dirBase . '/endpoints/comment_get.php');
 require_once($dirBase . '/endpoints/comment_post.php');
 
 // Require methods for password manage
-require_once($dirBase . '/endpoints/password.php');
+require_once($dirBase . '/endpoints/password_lost.php');
+require_once($dirBase . '/endpoints/password_reset.php');
+
+// Require methods for statistics manage
+require_once($dirBase . '/endpoints/stats_get.php');
 
 
 /*

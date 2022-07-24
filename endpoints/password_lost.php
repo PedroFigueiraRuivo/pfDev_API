@@ -23,6 +23,7 @@ function pfDev__api_password_lost($request) {
   $user_email = $user->user_email;
 
   $key = get_password_reset_key($user);
+  return rest_ensure_response($key);
 
   $message = "Use the link below to reset your password \r\n";
   $link_reset = esc_url_raw($url . '/?key=' . $key . '&login=' . rawurlencode($user_login) . "\r\n");
