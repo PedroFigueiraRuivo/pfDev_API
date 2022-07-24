@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Remove all native endpoints
  * 
@@ -13,7 +14,6 @@
  *  
  * Not required if previous function is enabled
  */
-// remove endpoints of the users
 add_filter('rest_endpoints', function ($endpoints) {
   unset($endpoints['/wp/v2/users']);
   unset($endpoints['/wp/v2/users/(?P<id>[\d]+)']);
@@ -62,9 +62,9 @@ require_once($dirBase . '/endpoints/stats_get.php');
 /*
  * Setting images in wide size
  */
-update_option( 'large_size_w', 1000);
-update_option( 'large_size_h', 1000);
-update_option( 'large_crop', 1);
+update_option('large_size_w', 1000);
+update_option('large_size_h', 1000);
+update_option('large_crop', 1);
 
 
 /* 
@@ -83,4 +83,5 @@ function pfDev__expire_token() {
   return time() + (60 * 60 * 24);
 }
 add_action('jwt_auth_expire', 'pfDev__expire_token');
-?> 
+
+?>
