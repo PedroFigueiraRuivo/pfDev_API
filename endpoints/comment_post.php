@@ -2,7 +2,7 @@
 
 function pfDev__api_comment_post($request) {
   $user = wp_get_current_user();
-  $user_id = $user->ID;
+  $user_id = (int) $user->ID;
 
   if ($user_id === 0) {
     $response = new WP_Error('error', 'Sem permisão.', ['status' => 401]);
@@ -16,18 +16,6 @@ function pfDev__api_comment_post($request) {
     $response = new WP_Error('error', 'Dados incompletos.', ['status' => 422]);
     return rest_ensure_response($response);
   }
-
-  $response = [
-    'comment_author' => $user->user_login,
-    'comment_content' => $comment,
-    'comment_post_ID' => $post_id,
-    'user_id' => $user_id,
-  ];
-
-  $comment_id = wp_insert_comment($response);
-  $comment = get_comment($comment_id);
-
-  return rest_ensure_response($comment);
 }
 
 function pfDev__register_api_comment_post() {
