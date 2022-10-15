@@ -2,7 +2,7 @@
 
 function pfDev__api_comment_post($request) {
   $user = wp_get_current_user();
-  $user_id = $user->ID;
+  $user_id = (int) $user->ID;
 
   $post_id = $request['id'];
   $comment = sanitize_text_field($request['comment']);
@@ -23,7 +23,7 @@ function pfDev__api_comment_post($request) {
     $response = get_comment($comment_id);
   }
 
-  return rest_ensure_response($comment);
+  return rest_ensure_response($response);
 }
 
 function pfDev__register_api_comment_post() {
