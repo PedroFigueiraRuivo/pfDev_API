@@ -4,18 +4,26 @@ function pfDev__api_comment_post($request) {
   $user = wp_get_current_user();
   $user_id = (int) $user->ID;
 
-  if ($user_id === 0) {
-    $response = new WP_Error('error', 'Sem permisão.', ['status' => 401]);
-    return rest_ensure_response($response);
-  }
-
-  $comment = sanitize_text_field($request['comment']);
   $post_id = $request['id'];
+  $comment = sanitize_text_field($request['comment']);
 
-  if (empty($comment)) {
-    $response = new WP_Error('error', 'Dados incompletos.', ['status' => 422]);
-    return rest_ensure_response($response);
+  if (!$user_id) {
+    $response = new WP_Error('error', 'No permision', ['status' => 401]);
+  } else if (empty($post_id) || empty($comment)) {
+    $response = new WP_Error('error', 'Data no found', ['status' => 422]);
+  } else {
+    $response = [
+      'comment_author' => $user->user_login,
+      'comment_content' => $comment,
+      'comment_post_ID' => $post_id,
+      'user_id' => $user_id
+    ];
+
+    $comment_id = wp_insert_comment($response);
+    $response = get_comment($comment_id);
   }
+
+  return rest_ensure_response($response);
 }
 
 function pfDev__register_api_comment_post() {
