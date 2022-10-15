@@ -2,7 +2,7 @@
 
 function pfDev__api_comment_post($request) {
   $user = wp_get_current_user();
-  $user_id = (int) $user->ID;
+  $user_id = $user->ID;
 
   $post_id = $request['id'];
   $comment = sanitize_text_field($request['comment']);

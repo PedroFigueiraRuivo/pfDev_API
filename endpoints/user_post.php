@@ -11,8 +11,8 @@ function pfDev__api_user_post($request) {
     $response = new WP_Error('error', 'E-mail já cadastrado', ['status' => 403]);
   } else {
     $response = wp_insert_user([
-      'user_login' => $username,
       'user_email' => $email,
+      'user_login' => $username,
       'user_pass' => $password,
       'role' => 'subscriber'
     ]);
