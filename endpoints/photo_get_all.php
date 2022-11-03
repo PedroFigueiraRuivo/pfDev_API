@@ -9,15 +9,15 @@ function pfDev__api_photos_get($request) {
   $_page = sanitize_text_field($request['_page']) ?: 1;
   $_user = sanitize_text_field($request['_user']) ?: 0;
 
-  // if (!is_numeric($_user)) {
-  //   $user = get_user_by('login', $_user);
+  if (!is_numeric($_user)) {
+    $user = get_user_by('login', $_user);
 
-  //   if (!$user) {
-  //     $response = new WP_Error('error', 'User not found', ['status' => 404]);
-  //     return rest_ensure_response($photos);
-  //   }
-  //   $_user = $user->ID;
-  // }
+    if (!$user) {
+      $response = new WP_Error('error', 'User not found', ['status' => 404]);
+      return rest_ensure_response($photos);
+    }
+    $_user = $user->ID;
+  }
 
   $args = [
     'post_type' => 'post',
