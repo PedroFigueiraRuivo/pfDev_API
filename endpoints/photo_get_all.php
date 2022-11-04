@@ -7,14 +7,14 @@ require_once($dirBase . '/endpoints/helps/photo_data.php');
 function pfDev__api_photos_get($request) {
   $_total = sanitize_text_field($request['_total']) ?: 6;
   $_page = sanitize_text_field($request['_page']) ?: 1;
-  $_user = $request['_user'] ? sanitize_text_field($request['_user']) : 0;
+  $_user = sanitize_text_field($request['_user']) ?: 0;
 
   if (!is_numeric($_user)) {
     $user = get_user_by('login', $_user);
 
     if (!$user) {
       $response = new WP_Error('error', 'User not found', ['status' => 404]);
-      return rest_ensure_response($response);
+      return rest_ensure_response($user);
     }
     $_user = $user->ID;
   }
