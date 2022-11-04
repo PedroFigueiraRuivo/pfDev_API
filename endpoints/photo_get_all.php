@@ -13,8 +13,8 @@ function pfDev__api_photos_get($request) {
     $user = get_user_by('login', $_user);
 
     if (!$user) {
-      $response = new WP_Error('error', 'User not found', ['status' => 404]);
-      return rest_ensure_response($user);
+      $response = new WP_Error('error', 'User not found' . $user, ['status' => 404]);
+      return rest_ensure_response($response);
     }
     $_user = $user->ID;
   }
