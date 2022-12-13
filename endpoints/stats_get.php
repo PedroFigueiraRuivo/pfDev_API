@@ -21,7 +21,7 @@ function pfDev__api_stats_get($request) {
   if ($posts) {
     $stats = [];
     foreach ($posts as $post) {
-      $stats = [
+      $stats[] = [
         'id' => $post->ID,
         'title' => $post->post_title,
         'hits' => get_post_meta($post->ID, 'hits', true)
