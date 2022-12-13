@@ -1,8 +1,9 @@
 <?php
 
 function pfDev__api_test_exclusive($request) {
+  $url = get_rest_url();
   
-  return rest_ensure_response($request);
+  return rest_ensure_response($url);
 
 }
 
