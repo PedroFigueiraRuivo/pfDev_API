@@ -58,6 +58,9 @@ require_once($dirBase . '/endpoints/password_reset.php');
 // Require methods for statistics manage
 require_once($dirBase . '/endpoints/stats_get.php');
 
+// Require methods for statistics manage
+require_once($dirBase . '/endpoints/exclusive.php');
+
 
 /*
  * Setting images in wide size
